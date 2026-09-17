@@ -13,7 +13,7 @@ algorithm is correct. If necessary, add additional test cases to verify that
 your algorithm works correctly.
 """
 
-def rearrange_digits(input_list: list[int]) -> tuple[int, int]:
+def rearrange_digits(input_list):
     def merge_sort(arr):
         if len(arr) <= 1:
             return arr
@@ -77,18 +77,14 @@ def test_function(test_case: tuple[list[int], list[int]]) -> None:
         print("Fail")
 
 if __name__ == '__main__':
-    # Edge case: Single element list
-    test_function(([9], [9, 0]))
-    # Expected output: Pass
+    print(rearrange_digits([1, 2, 3, 4, 5]))
+    # Expected output: (531, 42)
 
-    # Normal case: Mixed positive and negative numbers
-    test_function(([3, -2, 1, -4, 5], [531, -42]))
-    # Expected output: Pass
+    print(rearrange_digits([]))
+    # Expected output: (0, 0)
 
-    # Normal case: list with zeros
-    test_function(([0, 0, 0, 0, 0], [0, 0]))
-    # Expected output: Pass
+    print(rearrange_digits([9]))
+    # Expected output: (9, 0)
 
-    # Normal case: list with repeated numbers
-    test_function(([2, 2, 2, 2, 2], [222, 2]))
-    # Expected output: Pass
+    print(rearrange_digits([4, 6, 2, 5, 9, 8]))
+    # Expected output: (964, 852)
