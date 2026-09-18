@@ -77,14 +77,22 @@ def test_function(test_case: tuple[list[int], list[int]]) -> None:
         print("Fail")
 
 if __name__ == '__main__':
+    # Edge cases
+    print(rearrange_digits([9]))
+    # Expected output: (9, 0)
+
+    print(rearrange_digits([8, 1]))
+    # Expected output: (8, 1)
+
+    print(rearrange_digits([0, 0, 0, 0]))
+    # Expected output: (0, 0)
+
+    # Normal cases
     print(rearrange_digits([1, 2, 3, 4, 5]))
     # Expected output: (531, 42)
 
     print(rearrange_digits([]))
     # Expected output: (0, 0)
-
-    print(rearrange_digits([9]))
-    # Expected output: (9, 0)
 
     print(rearrange_digits([4, 6, 2, 5, 9, 8]))
     # Expected output: (964, 852)

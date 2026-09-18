@@ -64,11 +64,19 @@ def test_function(test_case: list[list[int]]) -> None:
         print("Fail")
 
 if __name__ == "__main__":
-    # Edge case: Empty input list
+    # Edge cases
     test_function([[]])
     # Expected output: Pass
+    test_function([[1]])
+    # Expected output: Pass
+    test_function([[0, 0, 0]])
+    # Expected output: Pass
+    test_function([[1, 1, 1]])
+    # Expected output: Pass
+    test_function([[2, 2, 2]])
+    # Expected output: Pass
 
-    # Normal case: Mixed elements
+    # Normal cases
     test_function([[0, 1, 2, 0, 1, 2]])
     # Expected output: Pass
 

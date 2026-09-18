@@ -39,9 +39,12 @@ def sqrt(number: int) -> int:
     
 
 if __name__ == "__main__":
-    # Test cases
+    # Edge cases
     print("Pass" if 3 == sqrt(9) else "Fail")   # Expected Output: Pass
     print("Pass" if 0 == sqrt(0) else "Fail")   # Expected Output: Pass
-    print("Pass" if 4 == sqrt(16) else "Fail")  # Expected Output: Pass
     print("Pass" if 1 == sqrt(1) else "Fail")   # Expected Output: Pass
+    print("Pass" if 7 == sqrt(49) else "Fail")  # Expected Output: Pass
     print("Pass" if 5 == sqrt(27) else "Fail")  # Expected Output: Pass
+
+    # Normal cases
+    print("Pass" if 4 == sqrt(16) else "Fail")  # Expected Output: Pass

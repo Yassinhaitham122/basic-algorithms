@@ -1,13 +1,21 @@
-<!--
-Problem 2: Search in a Rotated Sorted Array
+## Approach
 
-Provide an explanation for your answer, clearly organizing your thoughts into 
-concise and easy-to-understand language.
+I used a modified binary search. At every iteration, either the left half or
+the right half is still sorted. I check whether the target lies inside that
+sorted half; if it does, I search there, otherwise I discard it and search the
+other half.
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+## Time Complexity
+
+Only one half of the array is considered after each iteration, so the runtime
+is `O(log n)`.
+
+## Space Complexity
+
+The search uses only boundary variables and therefore takes `O(1)` extra space.
+
+## Design Choice
+
+The rotation preserves a sorted half at every midpoint. That property allows
+binary search to discard half the search space just as it does for a normally
+sorted array, while a linear scan would ignore this useful structure.

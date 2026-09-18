@@ -1,13 +1,23 @@
-<!--
-Problem 7: Request Routing in a Web Server with a Trie
+## Approach
 
-Provide an explanation for your answer, clearly organizing your thoughts into 
-concise and easy-to-understand language.
+I used a trie whose edges represent path parts separated by slashes. Adding a
+route follows or creates one node per path part and stores the handler at the
+final node. Lookup splits the requested path, ignores empty parts from leading
+or trailing slashes, and follows the matching nodes.
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+## Time Complexity
+
+For a path with `p` parts, insertion and lookup take `O(p)` time. Splitting the
+path also takes time proportional to its length.
+
+## Space Complexity
+
+The trie uses `O(n)` space for the total number of distinct stored path parts.
+
+## Design Choice
+
+A path-part trie is useful because related routes share their common prefixes,
+and lookup work depends on the number of path parts rather than scanning every
+registered route. A flat dictionary can provide exact matches, but it does not
+represent the route hierarchy as directly and makes shared path structure less
+useful.

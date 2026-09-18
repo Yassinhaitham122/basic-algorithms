@@ -1,13 +1,19 @@
-<!--
-Problem 6: Unsorted Integer Array
+## Approach
 
-Provide an explanation for your answer, clearly organizing your thoughts into
-concise and easy-to-understand language.
+I scan the array once while maintaining two variables: the smallest value seen
+so far and the largest value seen so far. Each new integer updates one or both
+variables when necessary.
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+## Time Complexity
+
+Every element is inspected once, so the runtime is `O(n)`.
+
+## Space Complexity
+
+Only two tracking variables are added, so the extra space is `O(1)`.
+
+## Design Choice
+
+A single pass is preferable to sorting because sorting would take `O(n log n)`
+time even though only the two extremes are needed. The tracking approach also
+does not reorder or copy the input list.

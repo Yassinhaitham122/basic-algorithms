@@ -1,13 +1,24 @@
-<!--
-Problem 5: Autocomplete with Tries
+## Approach
 
-Provide an explanation for your answer, clearly organizing your thoughts into
-concise and easy-to-understand language.
+I used a trie where each node stores a character and links to its child
+characters. Inserting a word creates or follows one node per character.
+Finding a prefix follows those same links, and `suffixes` recursively visits
+the matching node's descendants to collect complete words.
 
-Focus on explaining the reasoning behind your decisions rather than giving a 
-detailed description of the code. For instance, why did you choose a particular 
-data structure? Additionally, discuss the efficiency of your solution in terms 
-of time and space complexity. If necessary, you can support your explanation 
-with code snippets or mathematical formulas. For guidance on how to write 
-formulas in markdown, refer to https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions.
--->
+## Time Complexity
+
+Inserting or finding a word or prefix of length `p` takes `O(p)`. Collecting
+suffixes takes `O(k)` in proportion to the characters visited in the matching
+subtree.
+
+## Space Complexity
+
+The trie stores one node per stored character, requiring `O(n)` space for `n`
+stored characters. The recursive suffix collection also uses stack space
+proportional to the longest suffix.
+
+## Design Choice
+
+A trie is a good fit for autocomplete because prefix lookup follows only the
+prefix characters. A list would require checking every stored word and
+filtering it, while the trie immediately reaches the relevant subtree.

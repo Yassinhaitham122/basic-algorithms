@@ -151,11 +151,18 @@ if __name__ == '__main__':
     router = Router("root handler", "not found handler")
     router.add_handler("/home/about", "about handler")
 
-    # Edge case: Empty path
+    # Edge cases
+    print(router.lookup("/"))
+    # Expected output: 'root handler'
+
     print(router.lookup(""))
     # Expected output: 'not found handler'
+    print(router.lookup("/missing"))
+    # Expected output: 'not found handler'
+    print(router.lookup("/home/about///"))
+    # Expected output: 'about handler'
 
-    # Normal case: Path not found
+    # Normal cases
     print(router.lookup("/home/contact"))
     # Expected output: 'not found handler'
 

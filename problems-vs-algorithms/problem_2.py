@@ -95,11 +95,19 @@ def linear_search(input_list: list[int], number: int) -> int:
     return -1
 
 if __name__ == '__main__':
-    # Edge case: Empty input list
+    # Edge cases
     test_function([[], 5])
     # Expected output: Pass
+    test_function([[7], 7])
+    # Expected output: Pass
+    test_function([[7], 3])
+    # Expected output: Pass
+    test_function([[0, 1, 2, 3, 4], 4])
+    # Expected output: Pass
+    test_function([[4, 5, 6, 7, 0, 1, 2], 3])
+    # Expected output: Pass
 
-    # Normal case: Number at the beginning of the list
+    # Normal cases
     test_function([[4, 5, 6, 7, 0, 1, 2], 4])
     # Expected output: Pass
 

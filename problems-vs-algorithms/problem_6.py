@@ -39,11 +39,17 @@ def get_min_max(ints: list[int]) -> Optional[tuple[int, int]]:
     return min_value, max_value
 
 if __name__ == '__main__':
-    # Edge case: Empty input list
+    # Edge cases
     print(get_min_max([]))
     # Expected output: None
+    print(get_min_max([42]))
+    # Expected output: (42, 42)
+    print(get_min_max([7, 7, 7, 7]))
+    # Expected output: (7, 7)
+    print(get_min_max([-9, -4, -12]))
+    # Expected output: (-12, -4)
 
-    # Normal case: list with negative and positive numbers
+    # Normal cases
     print(get_min_max([-10, 0, 10, -20, 20]))
     # Expected output: (-20, 20)
 
